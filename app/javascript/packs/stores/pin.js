@@ -43,11 +43,10 @@ export default {
           .then(response => {
             context.commit('pins', { pins: response.data.pins })
             context.commit('page', { page: response.data.page })
-            context.dispatch('createFlash', {type: 'success', message: 'データの取得に成功しました'})
           })
           .catch(error => {
               console.error(error);
-              context.dispatch('createFlash', {type: 'error', message: 'データの取得に失敗しました'})
+              context.dispatch('createFlash', {type: 'error', message: 'データの取得に失敗しました。管理者に問い合わせて下さい'})
           });
         
     }
