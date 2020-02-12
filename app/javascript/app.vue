@@ -1,7 +1,6 @@
 <template>
   <v-app id="app">
     <Header></Header>
-    <p>{{ message }}</p>
     <Top></Top>
   </v-app>
 </template>
@@ -11,11 +10,6 @@ import Header from "./components/Header"
 import Top from "./components/Top"
 
 export default {
-  data: function () {
-    return {
-      message: "Hello Vue!"
-    }
-  },
   components: {
     Header,
     Top,

@@ -1,6 +1,6 @@
 <template>
   <section id="top">
-    <h1>This is Top.vue!</h1>
+    <h1>Welcome to cokemoss!!</h1>
   </section>
 </template>
 

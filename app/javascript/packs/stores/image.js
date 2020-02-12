@@ -2,27 +2,27 @@ import axios from "axios";
 
 export default {
   state: {
-    tasks: []
+    images: []
   },
 
   getters: {
-    tasks(state) {
-      return state.tasks;
+    images(state) {
+      return state.images;
     }
   },
 
   mutations: {
-    tasks(state) {
-      state.tasks = payload.tasks;
+    images(state) {
+      state.images = payload.images;
     }
   },
 
   actions: {
-    setTasks(context) {
+    setimages(context) {
       axios
-        .get("/api/v1/tasks")
+        .get("/api/v1/images")
         .then(response => {
-          context.commit("tasks", { tasks: response.data });
+          context.commit("images", { images: response.data });
         })
         .catch(error => {
           console.error(error);
