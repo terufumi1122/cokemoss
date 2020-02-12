@@ -2,27 +2,27 @@ import axios from "axios";
 
 export default {
   state: {
-    images: []
+    pins: []
   },
 
   getters: {
-    images(state) {
-      return state.images;
+    pins(state) {
+      return state.pins;
     }
   },
 
   mutations: {
-    images(state) {
-      state.images = payload.images;
+    pins(state, payload) {
+      state.pins = payload.pins;
     }
   },
 
   actions: {
-    setimages(context) {
+    getPins(context) {
       axios
-        .get("/api/v1/images")
+        .get("/api/v1/pins")
         .then(response => {
-          context.commit("images", { images: response.data });
+          context.commit("pins", { pins: response.data });
         })
         .catch(error => {
           console.error(error);

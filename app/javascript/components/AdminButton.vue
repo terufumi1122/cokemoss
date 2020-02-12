@@ -3,7 +3,7 @@
     <v-btn
       color="green"
       dark
-      @click="getImages()"
+      @click="getPins()"
     >データ取得</v-btn>
   </div>
 </template>
@@ -15,7 +15,7 @@ export default {
   name: 'AdminButton',
   methods: {
     ...mapActions([
-      'getImages'
+      'getPins'
     ])
   }
 }
