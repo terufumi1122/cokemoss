@@ -22,10 +22,13 @@ export default {
       axios
         .get("/api/v1/pins")
         .then(response => {
-          context.commit("pins", { pins: response.data });
+          context.commit('pins', { pins: response.pins })
+          context.commit('page', { page: response.page })
+          context.dispatch('createFlash', {type: 'success', message: 'データの取得に成功しました'})
         })
         .catch(error => {
-          console.error(error);
+          console.error(error)
+          context.dispatch('createFlash', {type: 'error', message: 'データの取得に失敗しました'})
         });
     }
   }
