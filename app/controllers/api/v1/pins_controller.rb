@@ -36,7 +36,7 @@ class Api::V1::PinsController < ApplicationController
 
   def save_pins_and_cursor(response)
     pins = JSON.parse(response.body)['data']
-    pins_count = pins.length
+    page = JSON.parse(response.body)['page']
     # 返ってきたデータの分だけ画像データをDBに保存する
     pins.each do |pin|
       Pin.create(
@@ -48,7 +48,7 @@ class Api::V1::PinsController < ApplicationController
                 )
     end
     # ページ切り替えに必要な`cursor`情報をDBに保存する
-    cursor = pins['page']['cursor']
+    cursor = page['cursor']
     Page.create(cursor: cursor)
   end
 end
