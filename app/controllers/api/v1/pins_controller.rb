@@ -15,11 +15,21 @@ class Api::V1::PinsController < ApplicationController
       json_for_vue = {
         message: response.message,
         pins: Pin.all.as_json,
-        cursor: Page.last.cursor
+        page: Page.last
       }
       render json: json_for_vue, status: response.code
     else
       render json: { error: response.message }, status: response.code
+    end
+  end
+
+  def set
+    pins = Pin.all.as_json
+    page = Page.last
+    if pins && page
+      render json: { pins: pins, page: page }, status: 200
+    else
+      render json: { error: 'データがありません' }, status: 500
     end
   end
   

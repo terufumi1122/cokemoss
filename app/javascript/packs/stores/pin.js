@@ -22,8 +22,8 @@ export default {
       axios
         .get("/api/v1/pins")
         .then(response => {
-          context.commit('pins', { pins: response.pins })
-          context.commit('page', { page: response.page })
+          context.commit('pins', { pins: response.data.pins })
+          context.commit('page', { page: response.data.cursor })
           context.dispatch('createFlash', {type: 'success', message: 'データの取得に成功しました'})
         })
         .catch(error => {
@@ -35,6 +35,21 @@ export default {
             context.dispatch('createFlash', {type: 'error', message: 'データの取得に失敗しました'})
           }
         });
+      },
+      
+      setPins(context) {
+        axios
+          .get("/api/v1/set_pins")
+          .then(response => {
+            context.commit('pins', { pins: response.data.pins })
+            context.commit('page', { page: response.data.page })
+            context.dispatch('createFlash', {type: 'success', message: 'データの取得に成功しました'})
+          })
+          .catch(error => {
+              console.error(error);
+              context.dispatch('createFlash', {type: 'error', message: 'データの取得に失敗しました'})
+          });
+        
     }
-  }
+  },
 };
