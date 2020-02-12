@@ -2,7 +2,7 @@
   <section id="top">
     <h1>Welcome to cokemoss!!</h1>
     <!-- 後でログイン時のみAdminButtonを使用するように変更する -->
-    <AdminButton></AdminButton>
+    <!-- <AdminButton></AdminButton> -->
     <PinsWrapper></PinsWrapper>
   </section>
 </template>
